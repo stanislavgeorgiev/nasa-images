@@ -9,7 +9,7 @@ The main used technologies are:
 
 ### Roadmap
 
- - Create an app with a loader screen
+ ~~- Create an app with a loader screen~~
  - Design the main areas of the app
  - Fetch images
  - Show images on the screen
