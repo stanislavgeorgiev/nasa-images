@@ -5,6 +5,7 @@ angular.module('nasaImagesApp', [
     'ngRoute',
     'ngAnimate',
     'ngMaterial',
+    'ngResource',
     'nasaImagesApp.feed',
     'nasaImagesApp.app-loading',
 ])

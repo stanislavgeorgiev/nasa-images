@@ -1,0 +1,108 @@
+/* Browser Compatibility */
+
+.browsehappy {
+    background: #FFF;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 1000000;
+
+    p {
+        margin-top: -10px;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+}
+
+/* Browser Compatibility - END */
+
+/* App Loading */
+
+.app-loading {
+    position: fixed ;
+
+    .animated-container {
+        background-color: #333333 ;
+        bottom: 0px ;
+        left: 0px ;
+        opacity: 1.0 ;
+        position: fixed ;
+        right: 0px ;
+        top: 0px ;
+        z-index: 999999 ;
+
+        /* Used to initialize the ng-leave animation state. */
+        &.ng-leave {
+            opacity: 1.0 ;
+            transition: all linear 200ms ;
+            -webkit-transition: all linear 200ms ;
+        }
+
+        /* Used to set the end properties of the ng-leave animation state. */
+        &.ng-leave-active {
+            opacity: 0 ;
+        }
+    }
+
+    .messaging {
+        color: #FFFFFF ;
+        font-family: monospace ;
+        left: 0px ;
+        margin-top: -37px ;
+        position: absolute ;
+        right: 0px ;
+        text-align: center ;
+        top: 50% ;
+    }
+
+    h1 {
+        font-size: 26px ;
+        line-height: 35px ;
+        margin: 0px 0px 20px 0px ;
+    }
+
+    p {
+        font-size: 18px ;
+        line-height: 14px ;
+        margin: 0px 0px 0px 0px ;
+    }
+}
+
+/* App Loading - END */
+
+/* Main Layout */
+
+.menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+
+.menu:before {
+    content: "[";
+}
+
+.menu:after {
+    content: "]";
+}
+
+.menu > li {
+    display: inline;
+}
+
+.menu > li:before {
+    content: "|";
+    padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+    content: "";
+    padding: 0;
+}
+
+/* Main Layout - END */

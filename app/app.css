@@ -1,102 +1,88 @@
 /* Browser Compatibility */
-
 .browsehappy {
-    background: #FFF;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 0;
-    z-index: 1000000;
+  background: #FFF;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 1000000;
 }
-
 .browsehappy p {
-    margin-top: -10px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
+  margin-top: -10px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
 }
-
 /* Browser Compatibility - END */
-
 /* App Loading */
-
-div.app-loading {
-    position: fixed ;
+.app-loading {
+  position: fixed ;
 }
-div.app-loading div.animated-container {
-    background-color: #333333 ;
-    bottom: 0px ;
-    left: 0px ;
-    opacity: 1.0 ;
-    position: fixed ;
-    right: 0px ;
-    top: 0px ;
-    z-index: 999999 ;
+.app-loading .animated-container {
+  background-color: #333333 ;
+  bottom: 0px ;
+  left: 0px ;
+  opacity: 1.0 ;
+  position: fixed ;
+  right: 0px ;
+  top: 0px ;
+  z-index: 999999 ;
+  /* Used to initialize the ng-leave animation state. */
+  /* Used to set the end properties of the ng-leave animation state. */
 }
-/* Used to initialize the ng-leave animation state. */
-div.app-loading div.animated-container.ng-leave {
-    opacity: 1.0 ;
-    transition: all linear 200ms ;
-    -webkit-transition: all linear 200ms ;
+.app-loading .animated-container.ng-leave {
+  opacity: 1.0 ;
+  transition: all linear 200ms ;
+  -webkit-transition: all linear 200ms ;
 }
-/* Used to set the end properties of the ng-leave animation state. */
-div.app-loading div.animated-container.ng-leave-active {
-    opacity: 0 ;
+.app-loading .animated-container.ng-leave-active {
+  opacity: 0 ;
 }
-div.app-loading div.messaging {
-    color: #FFFFFF ;
-    font-family: monospace ;
-    left: 0px ;
-    margin-top: -37px ;
-    position: absolute ;
-    right: 0px ;
-    text-align: center ;
-    top: 50% ;
+.app-loading .messaging {
+  color: #FFFFFF ;
+  font-family: monospace ;
+  left: 0px ;
+  margin-top: -37px;
+  position: absolute ;
+  right: 0px ;
+  text-align: center ;
+  top: 50% ;
 }
-div.app-loading h1 {
-    font-size: 26px ;
-    line-height: 35px ;
-    margin: 0px 0px 20px 0px ;
+.app-loading h1 {
+  font-size: 26px ;
+  line-height: 35px ;
+  margin: 0px 0px 20px 0px ;
 }
-div.app-loading p {
-    font-size: 18px ;
-    line-height: 14px ;
-    margin: 0px 0px 0px 0px ;
+.app-loading p {
+  font-size: 18px ;
+  line-height: 14px ;
+  margin: 0px 0px 0px 0px ;
 }
-
 /* App Loading - END */
-
 /* Main Layout */
-
 .menu {
-    list-style: none;
-    border-bottom: 0.1em solid black;
-    margin-bottom: 2em;
-    padding: 0 0 0.5em;
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
 }
-
 .menu:before {
-    content: "[";
+  content: "[";
 }
-
 .menu:after {
-    content: "]";
+  content: "]";
 }
-
 .menu > li {
-    display: inline;
+  display: inline;
 }
-
 .menu > li:before {
-    content: "|";
-    padding-right: 0.3em;
+  content: "|";
+  padding-right: 0.3em;
 }
-
 .menu > li:nth-child(1):before {
-    content: "";
-    padding: 0;
+  content: "";
+  padding: 0;
 }
-
 /* Main Layout - END */
