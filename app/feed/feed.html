@@ -1,3 +1,17 @@
-<ul ng-repeat="photo in photos.photo">
-    <li><img src="{{photo.thumb}}" /></li>
-</ul>
+<div class="image-feed" flex ng-cloak layout-padding>
+    
+    <md-grid-list
+        md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="4:3"
+        md-gutter="16px" md-gutter-gt-sm="8px" >
+        <md-grid-tile ng-repeat="photo in photos.photo"
+                      md-rowspan="{{photo.span.row}}"
+                      md-colspan="{{photo.span.col}}"
+                      md-colspan-sm="1"
+                      md-colspan-xs="1"
+                      >
+            <img ng-src="{{photo.url_n}}" class="md-tile-image" alt="{{photo.title}}" ng-click="showPhoto(photo)">
+            <md-grid-tile-footer><h3>{{photo.title}}</h3></md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+</div>

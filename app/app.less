@@ -106,3 +106,38 @@
 }
 
 /* Main Layout - END */
+
+/* Image Feed */
+
+.image-feed {
+        
+    md-grid-tile {
+        background: #E0E0E0;
+        overflow: hidden;
+
+        &:hover {
+            background: #BDBDBD;
+            cursor: pointer;
+
+            md-grid-tile-footer {
+                top: initial;
+            }
+        }
+        
+        figure {
+            padding: 20px;
+        }
+    }
+
+    .md-tile-image {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    md-grid-tile-footer {
+        top: 100%;
+        transition: .3s ease-in-out all;
+    }
+}
+
+/* Image Feed - END */

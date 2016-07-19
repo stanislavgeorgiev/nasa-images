@@ -86,3 +86,30 @@
   padding: 0;
 }
 /* Main Layout - END */
+/* Image Feed */
+.image-feed {
+  /*padding: 20px;*/
+}
+.image-feed md-grid-tile {
+  background: #E0E0E0;
+  overflow: hidden;
+}
+.image-feed md-grid-tile:hover {
+  background: #BDBDBD;
+  cursor: pointer;
+}
+.image-feed md-grid-tile:hover md-grid-tile-footer {
+  top: initial;
+}
+.image-feed md-grid-tile figure {
+  padding: 20px;
+}
+.image-feed .md-tile-image {
+  max-height: 100%;
+  max-width: 100%;
+}
+.image-feed md-grid-tile-footer {
+  top: 100%;
+  transition: 0.3s ease-in-out all;
+}
+/* Image Feed - END */
