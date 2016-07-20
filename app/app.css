@@ -103,6 +103,34 @@ md-content {
 }
 /* Main Layout - END */
 /* Image Feed */
+.search-tools {
+  background: #FFF;
+  min-height: 72px;
+}
+.search-tools > div:not(:first-child) {
+  border-left: 1px solid #eee;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.search-tools .refine {
+  border-left: 0;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding-right: 20px;
+}
+.search-tools md-input-container {
+  margin: 0;
+}
+.search-tools md-input-container.md-input-has-value label:not(.md-no-float) {
+  -webkit-transform: translate3d(0, 12px, 0) scale(0.75);
+  transform: translate3d(0, 12px, 0) scale(0.75);
+}
+.search-info .total-results {
+  /*float: right;*/
+}
+.image-feed {
+  padding-top: 0;
+}
 .image-feed md-grid-tile {
   background: #E0E0E0;
   overflow: hidden;

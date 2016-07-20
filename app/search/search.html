@@ -1,5 +1,41 @@
+<div class="search-tools" layout="column" layout-gt-sm="row" layout-align="none start" layout-align-gt-sm="space-between center" layout-padding>
+    <div class="refine"><i class="fa fa-sliders" aria-hidden="true"></i> Refine</div> 
+    <div>
+        <md-input-container>
+            <md-select ng-model="query.searchDateType">
+                <md-option ng-repeat="option in searchDateTypes" value="{{option.value}}">{{option.display}}</md-option>
+            </md-select>
+        </md-input-container>
+        <!--<br />-->
+        <md-datepicker ng-model="query.fromDate" md-placeholder="From date"></md-datepicker>
+        <md-datepicker ng-model="query.toDate" md-placeholder="To date"></md-datepicker>
+    </div>
+    <div>
+        <md-input-container>
+            <label>Search In:</label>
+            <md-select ng-model="query.searchIn">
+                <md-option ng-repeat="option in searchInOptions" value="{{option.value}}">{{option.display}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <span flex></span>
+    <div>
+        <md-input-container>
+            <label>Sort By:</label>
+            <md-select ng-model="query.sort">
+                <md-option ng-repeat="option in sortOptions" value="{{option.value}}">{{option.display}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+</div>
+
+<div class="search-info" layout="column" layout-gt-sm="row" layout-align="none start" layout-align-gt-sm="space-between center" layout-padding>
+    <div>NASA Goddard Space Flight Center's photos</div>
+    <span flex></span>
+    <div class="total-results">{{photos.total}} results</div>
+</div>
+
 <div class="image-feed" flex ng-cloak layout-padding>
-    
     <md-grid-list
         md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
         md-row-height-gt-md="1:1" md-row-height="4:3"

@@ -11,11 +11,13 @@ The main used technologies are:
 
  - ~~Create an app with a loader screen~~
  - ~~Fetch photo~~
- - Design the main areas of the app
+ - ~~Design the main areas of the app~~
  - ~~Show photo nicely on screen~~
  - ~~Show single photo nicely on screen~~
  - ~~Add navigation links on the single photo page~~
  - Add page options
  - Add sorting options
- - Add filtering options
- - Use responsive photo depending on the device resolution 
+ - ~~Add filtering options~~
+ - Use responsive photo depending on the device resolution
+ - Create a Grunt task to build production version with combined and minified .js and .css files
+ - Sanitize url input parameters
