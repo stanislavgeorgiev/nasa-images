@@ -10,10 +10,12 @@ The main used technologies are:
 ### Roadmap
 
  - ~~Create an app with a loader screen~~
- - ~~Fetch images~~
+ - ~~Fetch photo~~
  - Design the main areas of the app
- - ~~Show images nicely on screen~~
- - Show single image nicely on screen
+ - ~~Show photo nicely on screen~~
+ - ~~Show single photo nicely on screen~~
+ - ~~Add navigation links on the single photo page~~
+ - Add page options
  - Add sorting options
  - Add filtering options
- - Use responsive images depending on the device resolution 
+ - Use responsive photo depending on the device resolution 

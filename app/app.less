@@ -68,7 +68,7 @@
     p {
         font-size: 18px ;
         line-height: 14px ;
-        margin: 0px 0px 0px 0px ;
+        margin: 0px 0px 0px 0px;
     }
 }
 
@@ -76,68 +76,125 @@
 
 /* Main Layout */
 
-.menu {
-    list-style: none;
-    border-bottom: 0.1em solid black;
-    margin-bottom: 2em;
-    padding: 0 0 0.5em;
+.page-loading {
+    margin-top: -5px;
+    z-index: 10;
 }
 
-.menu:before {
-    content: "[";
+body, md-content {
+    background: #EEE;
 }
 
-.menu:after {
-    content: "]";
-}
+.search-form {
+    position: relative;
 
-.menu > li {
-    display: inline;
-}
+    .md-errors-spacer {
+        display: none;
+    }
 
-.menu > li:before {
-    content: "|";
-    padding-right: 0.3em;
-}
+    button, input, select, textarea {
+        vertical-align: top;
+    }
 
-.menu > li:nth-child(1):before {
-    content: "";
-    padding: 0;
+    input[type=text] {
+        border: 2px solid #FFF;
+        color: #333;
+    }
+
+    .fa {
+        background-color: #ffab40;
+        bottom: 0;
+        color: #FFF;
+        cursor: pointer;
+        padding: 4px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: 32px;
+    }
+
+    input[type=submit] {
+        display: none;
+    }
 }
 
 /* Main Layout - END */
 
 /* Image Feed */
 
-.image-feed {
-        
+.image-feed {    
     md-grid-tile {
         background: #E0E0E0;
         overflow: hidden;
+
+        md-grid-tile-footer {
+            opacity: 0;
+            transition: .2s ease-in-out all;
+
+            h3 {
+                height: 37px;
+            }
+        }
 
         &:hover {
             background: #BDBDBD;
             cursor: pointer;
 
             md-grid-tile-footer {
-                top: initial;
+                opacity: 1;
             }
         }
-        
+
         figure {
             padding: 20px;
         }
     }
 
     .md-tile-image {
-        max-height: 100%;
-        max-width: 100%;
-    }
-
-    md-grid-tile-footer {
-        top: 100%;
-        transition: .3s ease-in-out all;
+        max-width:100%;
+        max-height:100%;
+        object-fit: contain;
     }
 }
 
 /* Image Feed - END */
+
+/* Photo page */
+
+.media-holder {
+    background: #212124;
+    height: 70vh;
+    min-height: 500px;
+    position: relative;
+    text-align: center;
+    
+    img {
+        display: inline-block;
+        max-width:100%;
+        max-height:100%;
+        object-fit: cover;
+    }
+    
+    .nav-link {
+        color: #E0E0E0;
+        cursor: pointer;
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        
+        &.prev {
+            left: 0;
+        }
+        
+        &.next {
+            right: 0;
+            text-align: right;
+        }
+    }
+    
+    
+}
+
+/* Photo page - END*/

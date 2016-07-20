@@ -6,7 +6,7 @@ angular.module('nasaImagesApp', [
     'ngAnimate',
     'ngMaterial',
     'ngResource',
-    'nasaImagesApp.feed',
+    'nasaImagesApp.search',
     'nasaImagesApp.photo',
     'nasaImagesApp.app-loading',
 ])
@@ -15,11 +15,12 @@ angular.module('nasaImagesApp', [
     $routeProvider.otherwise({redirectTo: '/'});
 
     $mdThemingProvider.theme('default')
-            .primaryPalette('grey')
+            .primaryPalette('grey') 
             .accentPalette('orange');
 }])
-.controller('AppCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+.controller('AppCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
     $scope.pageLoading = false;
+    $scope.q = $location.search().q;
     
     $rootScope.$on('apiCallBegin', function() {
         $scope.pageLoading = true;
@@ -30,7 +31,10 @@ angular.module('nasaImagesApp', [
     });
     
     $rootScope.$on('apiCallError', function() {
-        $scope.pageLoading = false;
-        
+        $scope.pageLoading = false; 
     });
+    
+    $scope.search = function() {
+        $location.url('/?q=' + $scope.q);
+    };
 }]);

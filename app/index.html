@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css" />
         <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css" />
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
         <link rel="stylesheet" href="app.css" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -38,19 +38,14 @@
                     <div class="md-toolbar-tools">
                         <md-button aria-label="Go to homepage" href="#/">Nasa Images</md-button>
                         <span flex></span>
-                        <md-input-container md-no-float class="md-block">
-                            <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
-                            <input ng-model="searchTerm" type="text" placeholder="Search">
-                        </md-input-container>
-                        <md-button class="md-icon-button" aria-label="Favorite">
-                            <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
-                        </md-button>
-                        <md-button class="md-icon-button" aria-label="More">
-                            <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
-                        </md-button>
+                        <form search-form name="searchForm" ng-submit="search()" class="search-form">
+                            <input type="text" ng-model="q"  placeholder="Search">
+                            <i class="fa fa-search"></i>
+                            <input type="submit" value="" >
+                        </form>
                     </div>
                 </md-toolbar>
-                <md-progress-linear class="md-accent" md-mode="indeterminate" ng-disabled="!pageLoading"></md-progress-linear>
+                <md-progress-linear class="md-accent page-loading" md-mode="indeterminate" ng-disabled="!pageLoading"></md-progress-linear>
 
                 <div ng-view></div>
             </md-content>
@@ -65,7 +60,7 @@
         <script src="bower_components/angular-animate/angular-animate.js"></script>
         <script src="bower_components/angular-material/angular-material.js"></script>
         <script src="app.js"></script>
-        <script src="feed/feed.js"></script>
+        <script src="search/search.js"></script>
         <script src="photo/photo.js"></script>
         <script src="components/app-loading/app-loading-directive.js"></script>
     </body>

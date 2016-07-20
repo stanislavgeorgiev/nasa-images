@@ -1,16 +1,15 @@
 'use strict';
 
-angular.module('nasaImagesApp.feed', ['ngRoute'])
+angular.module('nasaImagesApp.search', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
-        templateUrl: 'feed/feed.html',
-        controller: 'FeedCtrl'
+        templateUrl: 'search/search.html',
+        controller: 'SearchCtrl'
     });
 }])
 
 .service('imagesService', ['$http', '$q', '$timeout', '$rootScope', function ($http, $q, $timeout, $rootScope) {
-    console.log('imagesService construct');
     var $this = this;
     this.photos = null;
     this.lastRequestParams = [];
@@ -47,6 +46,13 @@ angular.module('nasaImagesApp.feed', ['ngRoute'])
                     });
     };
     
+    this.getSelectedPhotoIndex = function() {
+        if (this.selected)
+            return this.photos.photo.indexOf(this.selected);
+        else
+            return -1;
+    };
+    
     this.resetPhotos();
         
     return {
@@ -54,6 +60,7 @@ angular.module('nasaImagesApp.feed', ['ngRoute'])
             var requestParams = angular.extend({
                 method: "flickr.photos.search",
                 user_id: "24662369@N07",
+                media: "photos",
                 text: "",
                 tags: "",
                 tag_mode: "all",
@@ -112,25 +119,45 @@ angular.module('nasaImagesApp.feed', ['ngRoute'])
                     return {};
                 });
         },
+        getPrevPhoto: function() {
+            var selectedPhotoIndex = $this.getSelectedPhotoIndex();
+            if (selectedPhotoIndex > 0)
+                return $this.photos.photo[selectedPhotoIndex-1];
+            else
+                return null;
+        },
+        getNextPhoto: function() {
+            var selectedPhotoIndex = $this.getSelectedPhotoIndex();
+            if (selectedPhotoIndex >= 0 && selectedPhotoIndex < $this.photos.photo.length - 1)
+                return $this.photos.photo[selectedPhotoIndex+1];
+            else
+                return null;
+        },
+        photos: function() {
+            return $this.photos;
+        },
         selected: function(photo) {
-//            console.log('imagesService.selected, photo', photo);
             if (photo != undefined)
                 $this.selected = photo;
-//            console.log('imagesService.selected', $this.selected);
+            
             return $this.selected;
         },
     };
 }])
 
-.controller('FeedCtrl', ['$scope', 'imagesService', '$location', function ($scope, imagesService, $location) {
+.controller('SearchCtrl', ['$scope', 'imagesService', '$location', '$routeParams', function ($scope, imagesService, $location, $routeParams) {
     $scope.photos = [];
 
-    imagesService.query().then(function(data){
+    $scope.query = {
+        text: $routeParams.q,
+    };
+
+    imagesService.query($scope.query).then(function(data){
         $scope.photos = data;
     });
     
     $scope.showPhoto = function(photo) {
         imagesService.selected(photo);
         $location.url('/photo/' + photo.id);
-    }
+    };
 }]);
