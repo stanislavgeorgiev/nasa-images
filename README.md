@@ -16,7 +16,7 @@ The main used technologies are:
  - ~~Show single photo nicely on screen~~
  - ~~Add navigation links on the single photo page~~
  - Add page options
- - Add sorting options
+ - ~~Add sorting options~~
  - ~~Add filtering options~~
  - Use responsive photo depending on the device resolution
  - Create a Grunt task to build production version with combined and minified .js and .css files
