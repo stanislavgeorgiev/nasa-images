@@ -57,7 +57,7 @@ angular.module('nasaImagesApp.search', ['ngRoute'])
             sort: "date-posted-desc",
             page: 1,
             per_page: $this.perPage,
-            extras: "description,url_b,url_n,o_dims",
+            extras: "description,url_b,url_n"
         };
 
         if (params.q && params.searchIn == 'tags') {
@@ -87,6 +87,12 @@ angular.module('nasaImagesApp.search', ['ngRoute'])
             requestParams.sort = 'date-taken-desc';
         else if (params.sort == 'interesting')
             requestParams.sort = 'interestingness-desc';
+        
+        if (params.page)
+            requestParams.page = params.page;
+        
+        if (params.perPage)
+            requestParams.per_page = params.perPage;
 
         if (JSON.stringify(requestParams) === JSON.stringify($this.lastRequestParams) && $this.photos.photo.length > 0) {
             //console.log('load cached');
@@ -103,7 +109,10 @@ angular.module('nasaImagesApp.search', ['ngRoute'])
 
             return $this.call(requestParams)
                 .then(function(data){
-                    if (data.stat == 'ok') {
+                    if (data.stat == 'ok' && requestParams.page > 1) {
+                        $this.photos.photo = $this.photos.photo.concat(data.photos.photo);
+                        $this.photos.page = requestParams.page;
+                    } else if (data.stat == 'ok') {
                         $this.photos = data.photos;
                     } else {
                         // display error message
@@ -197,6 +206,8 @@ angular.module('nasaImagesApp.search', ['ngRoute'])
         toDate: null,
         searchIn: $scope.searchInOptions[0].value,
         sort: $scope.sortOptions[0].value,
+        page: 1,
+        perPage: 48
     };
 
     $scope.search = function() {
@@ -208,6 +219,10 @@ angular.module('nasaImagesApp.search', ['ngRoute'])
     $scope.$watch("query", function(newValue, oldValue) {
         $scope.search();
     }, true); 
+    
+    $scope.loadMore = function() {
+        $scope.query.page++;
+    }
     
     $scope.showPhoto = function(photo) {
         imagesService.selected(photo);

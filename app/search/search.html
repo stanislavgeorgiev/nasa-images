@@ -35,7 +35,7 @@
     <div class="total-results">{{photos.total}} results</div>
 </div>
 
-<div class="image-feed" flex ng-cloak layout-padding>
+<div class="image-feed" ng-cloak layout-padding>
     <md-grid-list
         md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
         md-row-height-gt-md="1:1" md-row-height="4:3"
@@ -50,4 +50,8 @@
             <md-grid-tile-footer><h3>{{photo.title}}</h3></md-grid-tile-footer>
         </md-grid-tile>
     </md-grid-list>
+</div>
+
+<div layout-padding layout="row" layout-align="center center">
+    <md-button class="md-accent md-button md-raised" aria-label="Load More" href="#/" ng-click="loadMore()">Load More</md-button>
 </div>

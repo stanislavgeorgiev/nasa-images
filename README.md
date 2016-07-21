@@ -15,7 +15,7 @@ The main used technologies are:
  - ~~Show photo nicely on screen~~
  - ~~Show single photo nicely on screen~~
  - ~~Add navigation links on the single photo page~~
- - Add page options
+ - ~~Add page options~~
  - ~~Add sorting options~~
  - ~~Add filtering options~~
  - Use responsive photo depending on the device resolution
