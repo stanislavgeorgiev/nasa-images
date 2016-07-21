@@ -1,6 +1,8 @@
 # nasa-images
 
-This is a responsive web-app that fetches images from Nasa's account via the Flickr API.
+This is a responsive web-app that fetches images from Nasa's account via the Flickr API. You can see in action here:
+
+[DEMO](http://sigmaweb.ca/nasa-images/)
 
 The main used technologies are:
  - [AngularJS](https://angularjs.org/)
