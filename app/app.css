@@ -152,10 +152,15 @@ md-content {
 .image-feed md-grid-tile figure {
   padding: 20px;
 }
-.image-feed .md-tile-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.image-feed .tile-image {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 /* Image Feed - END */
 /* Photo page */

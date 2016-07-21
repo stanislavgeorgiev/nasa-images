@@ -2,7 +2,7 @@
     <div class="refine"><i class="fa fa-sliders" aria-hidden="true"></i> Refine</div> 
     <div>
         <md-input-container>
-            <md-select ng-model="query.searchDateType">
+            <md-select ng-model="query.searchDateType" aria-label="Search By Date">
                 <md-option ng-repeat="option in searchDateTypes" value="{{option.value}}">{{option.display}}</md-option>
             </md-select>
         </md-input-container>
@@ -46,7 +46,7 @@
                       md-colspan-sm="1"
                       md-colspan-xs="1"
                       >
-            <img ng-src="{{photo.url_n}}" class="md-tile-image" alt="{{photo.title}}" ng-click="showPhoto(photo)">
+            <div class="tile-image" style="background-image: url('{{photo.url_n}}')" ng-click="showPhoto(photo)"></div>
             <md-grid-tile-footer><h3>{{photo.title}}</h3></md-grid-tile-footer>
         </md-grid-tile>
     </md-grid-list>

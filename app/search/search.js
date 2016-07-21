@@ -222,7 +222,7 @@ angular.module('nasaImagesApp.search', ['ngRoute'])
     
     $scope.loadMore = function() {
         $scope.query.page++;
-    }
+    };
     
     $scope.showPhoto = function(photo) {
         imagesService.selected(photo);
