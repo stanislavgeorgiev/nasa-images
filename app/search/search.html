@@ -52,6 +52,6 @@
     </md-grid-list>
 </div>
 
-<div layout-padding layout="row" layout-align="center center">
-    <md-button class="md-accent md-button md-raised" aria-label="Load More" href="#/" ng-click="loadMore()">Load More</md-button>
+<div ng-show="photos.pages > 1 && photos.page < photos.pages" layout-padding layout="row" layout-align="center center">
+    <md-button class="md-accent md-button md-raised" aria-label="Load More" ng-click="loadMore()">Load More</md-button>
 </div>

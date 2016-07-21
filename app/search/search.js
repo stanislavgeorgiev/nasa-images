@@ -104,7 +104,7 @@ angular.module('nasaImagesApp.search', ['ngRoute'])
 
             return defer.promise;
         } else {
-            //console.log('load from server');
+            console.log('load from server');
             $this.lastRequestParams = requestParams;
 
             return $this.call(requestParams)
