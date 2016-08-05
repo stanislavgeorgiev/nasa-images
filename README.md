@@ -20,6 +20,7 @@ The main used technologies are:
  - ~~Add page options~~
  - ~~Add sorting options~~
  - ~~Add filtering options~~
+ - Refactor project following [John Papa's Angular style guide](https://github.com/johnpapa/angular-styleguide/)
  - Use responsive photo depending on the device resolution
  - Create a Grunt task to build production version with combined and minified .js and .css files
  - Sanitize url input parameters
