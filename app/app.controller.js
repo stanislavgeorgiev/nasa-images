@@ -13,8 +13,12 @@
         var vm = this;
         
         vm.pageLoading = false;
+        vm.search = search;
+        
         vm.q = $location.search().q;
 
+        /////////////////
+        
         $rootScope.$on('apiCallBegin', function () {
             vm.pageLoading = true;
         });
@@ -26,8 +30,10 @@
         $rootScope.$on('apiCallError', function () {
             vm.pageLoading = false;
         });
+        
+        /////////////////
 
-        vm.search = function () {
+        function search() {
             $location.url('/?q=' + vm.q);
         };
     }

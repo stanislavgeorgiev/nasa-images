@@ -35,26 +35,34 @@
             perPage: 48
         };
 
-        vm.search = function () {
-            imagesService.query(vm.query).then(function (data) {
-                vm.photos = data;
-            });
-        };
+        vm.search = search;
+        vm.loadMore = loadMore;
+        vm.showPhoto = showPhoto;
+        
+        vm.search();
+        
+        /////////////////////
 
         $scope.$watch("query", function (newValue, oldValue) {
             vm.search();
         }, true);
 
-        vm.loadMore = function () {
+        //////////////////
+        
+        function search() {
+            imagesService.query(vm.query).then(function (data) {
+                vm.photos = data;
+            });
+        }
+        
+        function loadMore() {
             vm.query.page++;
-        };
-
-        vm.showPhoto = function (photo) {
+        }
+        
+        function showPhoto(photo) {
             imagesService.selected(photo);
             $location.url('/photo/' + photo.id);
         };
-
-        vm.search();
     }
 
 })();
