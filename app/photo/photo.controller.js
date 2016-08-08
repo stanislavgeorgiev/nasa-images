@@ -6,22 +6,26 @@
             .config(['$routeProvider', function ($routeProvider) {
                     $routeProvider.when('/photo/:id', {
                         templateUrl: 'photo/photo.html',
-                        controller: 'PhotoCtrl'
+                        controller: 'PhotoCtrl',
+                        controllerAs: 'photo'
                     });
                 }])
             .controller('PhotoCtrl', PhotoCtrl);
 
-    PhotoCtrl.$inject = ['$scope', 'imagesService', '$location', '$routeParams', '$sce'];
+    PhotoCtrl.$inject = ['imagesService', '$location', '$routeParams', '$sce'];
 
-    function PhotoCtrl($scope, imagesService, $location, $routeParams, $sce) {
+    function PhotoCtrl(imagesService, $location, $routeParams, $sce) {
+        
+        /* jshint validthis: true */
+        var vm = this;
 
         imagesService.get($routeParams.id).then(function (photo) {
-            $scope.photo = photo;
+            angular.extend(vm, photo);
         });
 
-        $scope.showNavLinks = imagesService.photos().photo.length > 0;
+        vm.showNavLinks = imagesService.photos().photo.length > 0;
 
-        $scope.showPhoto = function (photo) {
+        vm.showPhoto = function (photo) {
             if (photo) {
                 imagesService.selected(photo);
                 $location.url('/photo/' + photo.id);
@@ -30,24 +34,28 @@
             }
         }
 
-        $scope.prev = function () {
-            if ($scope.showNavLinks) {
-                $scope.showPhoto(imagesService.getPrevPhoto());
+        vm.prev = function () {
+            if (vm.showNavLinks) {
+                vm.showPhoto(imagesService.getPrevPhoto());
             } else {
                 $location.url('/');
             }
         };
 
-        $scope.next = function () {
-            if ($scope.showNavLinks) {
-                $scope.showPhoto(imagesService.getNextPhoto());
+        vm.next = function () {
+            if (vm.showNavLinks) {
+                vm.showPhoto(imagesService.getNextPhoto());
             } else {
                 $location.url('/');
             }
         };
 
-        $scope.showDescription = function () {
-            return $sce.trustAsHtml($scope.photo.description._content);
+        vm.showDescription = function () {
+            var description = '';
+            if (vm.description)
+                description = $sce.trustAsHtml(vm.description._content);
+            
+            return description;
         }
 
     }

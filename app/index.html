@@ -32,20 +32,20 @@
             <!-- END: App-Loading Screen. -->
         </div>
 
-        <div ng-controller="AppCtrl">
+        <div ng-controller="AppCtrl as app">
             <md-content>
                 <md-toolbar class="md-hue-2">
                     <div class="md-toolbar-tools">
                         <md-button aria-label="Go to homepage" href="#/">Nasa Images</md-button>
                         <span flex></span>
-                        <form search-form name="searchForm" ng-submit="search()" class="search-form">
-                            <input type="text" ng-model="q"  placeholder="Search">
+                        <form search-form name="searchForm" ng-submit="app.search()" class="search-form">
+                            <input type="text" ng-model="app.q"  placeholder="Search">
                             <i class="fa fa-search"></i>
                             <input type="submit" value="" >
                         </form>
                     </div>
                 </md-toolbar>
-                <md-progress-linear class="md-accent page-loading" md-mode="indeterminate" ng-disabled="!pageLoading"></md-progress-linear>
+                <md-progress-linear class="md-accent page-loading" md-mode="indeterminate" ng-disabled="!app.pageLoading"></md-progress-linear>
 
                 <div ng-view></div>
             </md-content>

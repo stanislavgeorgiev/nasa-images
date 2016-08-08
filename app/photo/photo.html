@@ -1,11 +1,11 @@
 <div class="media-holder">
-    <a class="nav-link prev" ng-click="prev()" ng-show="showNavLinks"><i class="fa fa-chevron-left"></i></a>
+    <a class="nav-link prev" ng-click="photo.prev()" ng-show="photo.showNavLinks"><i class="fa fa-chevron-left"></i></a>
     <img ng-src="{{photo.url_b}}" class="md-tile-image" alt="{{photo.title}}">
-    <a class="nav-link next" ng-click="next()" ng-show="showNavLinks"><i class="fa fa-chevron-right"></i></a>
+    <a class="nav-link next" ng-click="photo.next()" ng-show="photo.showNavLinks"><i class="fa fa-chevron-right"></i></a>
 </div>
 <div layout-padding>
     <h1>{{photo.title._content}}</h1>
     <h3>By {{photo.owner.realname}} at {{photo.owner.location}}</h3>
     <p>Taken on {{photo.dates.taken}}</p>
-    <div ng-bind-html="showDescription()" style="white-space: pre-wrap;"></div>
+    <div ng-bind-html="photo.showDescription()" style="white-space: pre-wrap;"></div>
 </div>

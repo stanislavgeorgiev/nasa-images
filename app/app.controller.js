@@ -6,26 +6,29 @@
             .module('nasaImagesApp')
             .controller('AppCtrl', AppCtrl);
 
-    AppCtrl.$inject = ['$scope', '$rootScope', '$location'];
+    AppCtrl.$inject = ['$rootScope', '$location'];
 
-    function AppCtrl($scope, $rootScope, $location) {
-        $scope.pageLoading = false;
-        $scope.q = $location.search().q;
+    function AppCtrl($rootScope, $location) {
+        /* jshint validthis: true */
+        var vm = this;
+        
+        vm.pageLoading = false;
+        vm.q = $location.search().q;
 
         $rootScope.$on('apiCallBegin', function () {
-            $scope.pageLoading = true;
+            vm.pageLoading = true;
         });
 
         $rootScope.$on('apiCallEnd', function () {
-            $scope.pageLoading = false;
+            vm.pageLoading = false;
         });
 
         $rootScope.$on('apiCallError', function () {
-            $scope.pageLoading = false;
+            vm.pageLoading = false;
         });
 
-        $scope.search = function () {
-            $location.url('/?q=' + $scope.q);
+        vm.search = function () {
+            $location.url('/?q=' + vm.q);
         };
     }
 

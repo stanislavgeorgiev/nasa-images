@@ -2,19 +2,19 @@
     <div class="refine"><i class="fa fa-sliders" aria-hidden="true"></i> Refine</div> 
     <div>
         <md-input-container>
-            <md-select ng-model="query.searchDateType" aria-label="Search By Date">
-                <md-option ng-repeat="option in searchDateTypes" value="{{option.value}}">{{option.display}}</md-option>
+            <md-select ng-model="search.query.searchDateType" aria-label="Search By Date">
+                <md-option ng-repeat="option in search.searchDateTypes" value="{{option.value}}">{{option.display}}</md-option>
             </md-select>
         </md-input-container>
         <!--<br />-->
-        <md-datepicker ng-model="query.fromDate" md-placeholder="From date"></md-datepicker>
-        <md-datepicker ng-model="query.toDate" md-placeholder="To date"></md-datepicker>
+        <md-datepicker ng-model="search.query.fromDate" md-placeholder="From date"></md-datepicker>
+        <md-datepicker ng-model="search.query.toDate" md-placeholder="To date"></md-datepicker>
     </div>
     <div>
         <md-input-container>
             <label>Search In:</label>
-            <md-select ng-model="query.searchIn">
-                <md-option ng-repeat="option in searchInOptions" value="{{option.value}}">{{option.display}}</md-option>
+            <md-select ng-model="search.query.searchIn">
+                <md-option ng-repeat="option in search.searchInOptions" value="{{option.value}}">{{option.display}}</md-option>
             </md-select>
         </md-input-container>
     </div>
@@ -22,8 +22,8 @@
     <div>
         <md-input-container>
             <label>Sort By:</label>
-            <md-select ng-model="query.sort">
-                <md-option ng-repeat="option in sortOptions" value="{{option.value}}">{{option.display}}</md-option> 
+            <md-select ng-model="search.query.sort">
+                <md-option ng-repeat="option in search.sortOptions" value="{{option.value}}">{{option.display}}</md-option> 
             </md-select>
         </md-input-container>
     </div>
@@ -32,7 +32,7 @@
 <div class="search-info" layout="column" layout-gt-sm="row" layout-align="none start" layout-align-gt-sm="space-between center" layout-padding>
     <div>NASA Goddard Space Flight Center's photos</div>
     <span flex></span>
-    <div class="total-results">{{photos.total}} results</div>
+    <div class="total-results">{{search.photos.total}} results</div>
 </div>
 
 <div class="image-feed" ng-cloak layout-padding>
@@ -40,18 +40,18 @@
         md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
         md-row-height-gt-md="1:1" md-row-height="4:3"
         md-gutter="8px">
-        <md-grid-tile ng-repeat="photo in photos.photo"
+        <md-grid-tile ng-repeat="photo in search.photos.photo"
                       md-rowspan="{{photo.span.row}}"
                       md-colspan="{{photo.span.col}}"
                       md-colspan-sm="1"
                       md-colspan-xs="1"
                       >
-            <div class="tile-image" style="background-image: url('{{photo.url_n}}')" ng-click="showPhoto(photo)"></div>
+            <div class="tile-image" style="background-image: url('{{photo.url_n}}')" ng-click="search.showPhoto(photo)"></div>
             <md-grid-tile-footer><h3>{{photo.title}}</h3></md-grid-tile-footer>
         </md-grid-tile>
     </md-grid-list>
 </div>
 
-<div ng-show="photos.pages > 1 && photos.page < photos.pages" layout-padding layout="row" layout-align="center center">
-    <md-button class="md-accent md-button md-raised" aria-label="Load More" ng-click="loadMore()">Load More</md-button>
+<div ng-show="search.photos.pages > 1 && search.photos.page < search.photos.pages" layout-padding layout="row" layout-align="center center">
+    <md-button class="md-accent md-button md-raised" aria-label="Load More" ng-click="search.loadMore()">Load More</md-button>
 </div>
